@@ -139,10 +139,13 @@ Register both the miner and validator on the active Bittensor subnet.
 To start the miner, run the following Python script in the `subnet-template` directory:
 
 ```sh
-python miner.py --wallet.name WALLET_NAME --wallet.hotkey HOTKEY --netuid NETUID --axon.port 8901 --subtensor.network NETWORK
+BT_NO_PARSE_CLI_ARGS=0 python miner.py --wallet.name WALLET_NAME --wallet.hotkey HOTKEY --netuid NETUID --axon.port 8901 --subtensor.network NETWORK
 ```
 
-> **Note**: Run the `miner.py` script in a Python environment with the Bittensor SDK installed.
+> **Note**:
+>
+> - Run the `miner.py` script in a Python environment with the Bittensor SDK installed.
+> - CLI examples explicitly set `BT_NO_PARSE_CLI_ARGS=0` to enable SDK CLI argument parsing. See the [Bittensor SDK documentation](https://docs.learnbittensor.org/sdk/env-vars#bt_no_parse_cli_args) for details.
 
 The script launches an Axon server on port `8901`, which the miner uses to receive incoming requests from validators.
 
@@ -151,10 +154,13 @@ The script launches an Axon server on port `8901`, which the miner uses to recei
 To start the validator process, run the following Python script in the `subnet-template` directory:
 
 ```sh
-python validator.py --wallet.name WALLET_NAME --wallet.hotkey HOTKEY --netuid NETUID --subtensor.network NETWORK
+BT_NO_PARSE_CLI_ARGS=0 python validator.py --wallet.name WALLET_NAME --wallet.hotkey HOTKEY --netuid NETUID --subtensor.network NETWORK
 ```
 
-> **Note**: Run the `validator.py` script in a Python environment with the Bittensor SDK installed.
+> **Note**:
+>
+> - Run the `validator.py` script in a Python environment with the Bittensor SDK installed.
+> - CLI examples explicitly set `BT_NO_PARSE_CLI_ARGS=0` to enable SDK CLI argument parsing. See the [Bittensor SDK documentation](https://docs.learnbittensor.org/sdk/env-vars#bt_no_parse_cli_args) for details.
 
 This script begins the process of sending inputs to the miners and setting weights based on miner responses.
 
@@ -172,8 +178,10 @@ This script begins the process of sending inputs to the miners and setting weigh
 Use the `--logging.info` flag to print miner and validator log messages directly to the console. This helps you monitor activity in real time. For example
 
 ```sh
-python validator.py --wallet.name WALLET_NAME --wallet.hotkey HOTKEY --netuid NETUID --subtensor.network NETWORK --logging.info
+BT_NO_PARSE_CLI_ARGS=0 python validator.py --wallet.name WALLET_NAME --wallet.hotkey HOTKEY --netuid NETUID --subtensor.network NETWORK --logging.info
 ```
+
+> **Note**: CLI examples explicitly set `BT_NO_PARSE_CLI_ARGS=0` to enable SDK CLI argument parsing. See the [Bittensor SDK documentation](https://docs.learnbittensor.org/sdk/env-vars#bt_no_parse_cli_args) for details.
 
 You can monitor these logs to observe the interactions and performance metrics.
 
